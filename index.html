@@ -779,9 +779,43 @@
   </style>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<style>
+  #error {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: absolute;
+  z-index: 10000000;
+  left: 50%;
+  top: 20px;
+  font-size: 17px;
+  }
+  
+  #error.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
 
+  </style>
 <body >
+  
   <div class="bg" id="myModal" style="height: 100% !important;background-color: rgb(84 84 84 / 70%)">
+    <div id="error"></div>
     <div class="modal" id="myModal-game" style="z-index:100000; display:none">
       <div class="g2j-basic-modal g2j-direct-app-notice-modal modal-about">
         <div class="g2j-basic-modal__bg modal-bg"> </div>
@@ -794,7 +828,7 @@
             
             <div style="padding: 32px 16px; ">
               <!-- Form -->
-              <form class="mt-6">
+              <div class="mt-6">
                 <!-- firstname and lastname -->
                 <div class="flex justify-between gap-3">
                   <span class="w-1/2">
@@ -826,10 +860,11 @@
                 <label for="address" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Địa chỉ:</label>
                 <input id="address" type="address" name="address" placeholder="Nhập địa chỉ" autocomplete="address" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
                 <div id="message_success-mobile"></div>
-                <button onclick="onClickRegister()" type="submit" type="submit" class="w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none">
+                <input type="hidden" name="c" value="3" /> 
+                <button onclick="onClickRegister()" class="w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none">
                   ĐĂNG KÝ
                 </button>
-              </form>
+              </div>
               
             </div>
           </div>
@@ -848,6 +883,26 @@
     </section>
   </div>
   <script>
+    async function getMessage(message,i) {
+      const devGet =  document.getElementById("error").innerHTML += 
+      `<div 
+      class="max-w-xs bg-red-500 text-sm 
+      text-white rounded-md shadow-lg 
+      dark:bg-gray-700 mb-3 ml-3" role="alert">
+        <div class="flex p-4">
+          ${message}
+          <div class="ml-auto">
+            <button type="button" class="inline-flex flex-shrink-0 justify-center items-center h-4 w-4 rounded-md text-white/[.5] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-600 focus:ring-gray-500 transition-all text-sm dark:focus:ring-offset-gray-700 dark:focus:ring-gray-500">
+              
+            </button>
+          </div>
+        </div>
+      </div>`
+      var x = document.getElementById("error");
+      x.className = "show";
+      
+      
+    }
     async function onClickRegister() {
         const firstname = document.getElementById("firstname").value;
         const lastname = document.getElementById("lastname").value;
@@ -864,42 +919,49 @@
           provinceId: userOption,
           address: address
         }
-        const result = await axios.post(
-            "https://staging-api.go2joy.vn/api/v1/user/register",
-            params).then(function (response) {
-            const devGet = document.getElementById("message_success-mobile")
-            devGet.innerHTML +=`<p style="float: left;font-size: 20px; color:#409eff;text-align: left;">Gửi thông
-                tin thành
-                công! Joy Inn Hotel sẽ sớm liên hệ với bạn.</p>`
-            const getSendmail = document.getElementById("stickyEmailMobile")
-            getSendmail.style.paddingBottom = "105px"
-            return response.data.data
-        })
-
+        try {
+          const result = await axios.post(
+            "http://178.128.106.85/api/v1/user/register", params).then(function (response) {
+            })
+          } catch(error) {  
+            for(var i = 0; i < error.response.data.error.length; i++) {
+              let mess = error.response.data.error[i].message
+              setTimeout(function(){ 
+                getMessage(mess,i)
+              }, i*1000);
+            }
+            var x = document.getElementById("error");
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, error.response.data.error.length * 1000);
+            x.innerHTML = ''
+          }
+          
     };
   </script>
   <script>
-    html = "";
-    //  
-    let dataProvince = []
-    var result = axios.get("https://staging-api.go2joy.vn/api/v1/appendix/get-province-list", {
-          name: "data"
-        }).then(function (response) {
-          dataProvince = response.data.data
-          return dataProvince
-        })
-    for(var item in dataProvince) {
-        html += "<option value=" + item.sn  + ">" +item.name + "</option>"
+    getProvinceList()
+    async function getProvinceList() {
+      html = "";
+      //  
+      let dataProvince = []
+      var result = await axios.get("http://178.128.106.85/api/v1/appendix/get-province-list", {
+            name: "data"
+          }).then(function (response) {
+            dataProvince = response.data.data
+            return dataProvince
+          })
+      for(var i = 0; i < dataProvince.length; i++) {
+          html += "<option value=" + dataProvince[i].id  + ">" + dataProvince[i].title + "</option>"
+      }
+      document.getElementById("province").innerHTML = html;
     }
-    document.getElementById("province").innerHTML = html;
 </script>
 
   <script>
     const header = parseQueryString()
     const headerFormDataGet = {
-      'Authorization': header.Token ? header.Token : '',
-      'Device-Encode': header.DeviceEncode ? header.DeviceEncode : '',
-      'Secret-Code': header.SecretCode ? header.SecretCode : ''
+      'access-token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjoxLFwicGhvbmVcIjpcIjA5MTU1MTIzMzdcIixcInNwYU5hbWVcIjpcIlNwYSBBQkNYWVpcIixcImZpcnN0TmFtZVwiOlwiQ2hhdSBIYWlcIixcImxhc3ROYW1lXCI6XCJIdW5nXCJ9IiwiZXhwIjoxNjg0NTA2MjI0LCJpc3MiOiJyb3N3ZWxsLWp3dCIsImlhdCI6MTY4NDQxOTgyNH0.oS9fvbC1iWiqeuG7YPBXg3mfOjM_WgadSXhAL_CaUiI',
+      // 'Device-Encode': header.DeviceEncode ? header.DeviceEncode : '',
+      'qr-token': '1491ecf5400faaf204bc9e1e9a052bf44a16cf47a6136a56534600ae13cd7baf'
     }
     axios.defaults.headers = headerFormDataGet
 
@@ -934,7 +996,7 @@
     }
     const wrapper = document.querySelector('.wrapper')
     async function getDataFromApi() {
-      var result = await axios.get("https://staging-api.go2joy.vn/api/v1/lucky-wheel/spin", {
+      var result = await axios.get("http://178.128.106.85/api/v1/lucky-wheel/get-reward-wheel-list", {
           name: "data"
         }).then(function (response) {
           return response.data.data
@@ -948,7 +1010,7 @@
     async function randomIndex(prizes) {
       prizeIndex = await axios.get(
         // Staging  
-        "https://staging-api.go2joy.vn/api/v1/lucky-wheel/get-reward-wheel-list", {
+        "http://178.128.106.85/api/v1/lucky-wheel/get-reward-wheel-list", {
           name: "data"
         }).then(function (response) {
           return response.data.data
