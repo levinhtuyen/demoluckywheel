@@ -793,37 +793,40 @@
             style="border-radius: 20px;padding:unset;overflow: hidden;">
             
             <div style="padding: 32px 16px; ">
+              <!-- Form -->
               <form class="mt-6">
-                <label for="lastname" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Họ và tên đệm:</label>
-                <input id="lastname" type="text" name="lastname" placeholder="Họ và tên" autocomplete="family-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
+                <!-- firstname and lastname -->
+                <div class="flex justify-between gap-3">
+                  <span class="w-1/2">
+                    <label for="firstname" class="block text-xs font-semibold text-gray-600 uppercase">Họ và tên đệm:</label>
+                    <input id="firstname" type="text" name="firstname" placeholder="Họ" autocomplete="given-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
+                  </span>
+                  <span class="w-1/2">
+                    <label for="lastname" class="block text-xs font-semibold text-gray-600 uppercase">&nbsp;</label>
+                  <input id="lastname" type="text" name="lastname" placeholder="Tên" autocomplete="family-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
+                  </span>
+                </div>
+                <!-- mobile -->
                 <label for="mobile" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Số điện thoại:</label>
                 <input id="mobile" type="text" name="mobile" placeholder="Số điện thoại" autocomplete="family-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
+                <!-- spa -->
                 <label for="spa" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Tên Spa:</label>
                 <input id="spa" type="text" name="spa" placeholder="Tên Spa" autocomplete="family-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
+                <!-- province -->
                 <label for="province" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Tỉnh/ thành</label>
                 <div class="flex-shrink w-full inline-block relative">
                   <select  name="province" id="province" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner">
                   </select>
-                  <script>
-
-                    html = "";
-                    obj = {
-                        "1" : "Hồ Chí Minh",
-                        "2": "Hà Nội",
-                        "3" : "Đà Nẵng"
-                    }
-                    for(var key in obj) {
-                        html += "<option value=" + key  + ">" +obj[key] + "</option>"
-                    }
-                    document.getElementById("province").innerHTML = html;
-                </script>
+                  
                   <div class="pointer-events-none absolute top-0 mt-3 pt-2 right-0 flex items-center px-2 text-gray-600">
                       <svg class="fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                   </div>
                 </div>
-                <label for="email" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Địa chỉ:</label>
-                <input id="email" type="email" name="email" placeholder="Nhập địa chỉ" autocomplete="address" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
-                <button type="submit" class="w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none">
+                <!-- address -->
+                <label for="address" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Địa chỉ:</label>
+                <input id="address" type="address" name="address" placeholder="Nhập địa chỉ" autocomplete="address" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
+                <div id="message_success-mobile"></div>
+                <button onclick="onClickRegister()" type="submit" type="submit" class="w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none">
                   ĐĂNG KÝ
                 </button>
               </form>
@@ -844,6 +847,53 @@
       </div>
     </section>
   </div>
+  <script>
+    async function onClickRegister() {
+        const firstname = document.getElementById("firstname").value;
+        const lastname = document.getElementById("lastname").value;
+        const mobile = document.getElementById("mobile").value;
+        const spa = document.getElementById("spa").value;
+        var userOption = document.getElementById('province').value;
+        const address = document.getElementById("address").value;
+
+        const params = {
+          lastName: lastname,
+          firstName: firstname,
+          phone: mobile,
+          spaName: spa,
+          provinceId: userOption,
+          address: address
+        }
+        const result = await axios.post(
+            "https://staging-api.go2joy.vn/api/v1/user/register",
+            params).then(function (response) {
+            const devGet = document.getElementById("message_success-mobile")
+            devGet.innerHTML +=`<p style="float: left;font-size: 20px; color:#409eff;text-align: left;">Gửi thông
+                tin thành
+                công! Joy Inn Hotel sẽ sớm liên hệ với bạn.</p>`
+            const getSendmail = document.getElementById("stickyEmailMobile")
+            getSendmail.style.paddingBottom = "105px"
+            return response.data.data
+        })
+
+    };
+  </script>
+  <script>
+    html = "";
+    //  
+    let dataProvince = []
+    var result = axios.get("https://staging-api.go2joy.vn/api/v1/appendix/get-province-list", {
+          name: "data"
+        }).then(function (response) {
+          dataProvince = response.data.data
+          return dataProvince
+        })
+    for(var item in dataProvince) {
+        html += "<option value=" + item.sn  + ">" +item.name + "</option>"
+    }
+    document.getElementById("province").innerHTML = html;
+</script>
+
   <script>
     const header = parseQueryString()
     const headerFormDataGet = {
@@ -884,10 +934,9 @@
     }
     const wrapper = document.querySelector('.wrapper')
     async function getDataFromApi() {
-      var result = await axios.get("https://staging-api.go2joy.vn/api/v3/mobile/reward/getPromotionLuckyWheel", {
+      var result = await axios.get("https://staging-api.go2joy.vn/api/v1/lucky-wheel/spin", {
           name: "data"
         }).then(function (response) {
-          console.log('response :>> ', response);
           return response.data.data
         })
         let modal = document.getElementById("myModal-game")
@@ -899,7 +948,7 @@
     async function randomIndex(prizes) {
       prizeIndex = await axios.get(
         // Staging  
-        "https://staging-api.go2joy.vn/api/v3/mobile/reward/randomPromotionLuckyWheel", {
+        "https://staging-api.go2joy.vn/api/v1/lucky-wheel/get-reward-wheel-list", {
           name: "data"
         }).then(function (response) {
           return response.data.data
@@ -911,7 +960,6 @@
       "DOMContentLoaded",
       async function () {
           var prizes = await getDataFromApi();
-          console.log('prizes :>> ', prizes);
           hcLuckywheel.init({
             id: "luckywheel",
             config: function (callback) {
