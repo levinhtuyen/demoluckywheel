@@ -67,7 +67,7 @@
     fnGetPrize = opts.getPrize;
     fnGotBack = opts.gotBack;
     opts.config(function (data) {
-
+      console.log('data :>> ', data);
       prizes = opts.prizes = data;
       num = prizes.length;
       draw(opts);
@@ -124,21 +124,11 @@
       // ctx.stroke();
       ctx.restore();
       var prizeList = opts.prizes;
+      console.log('prizeList :>> ', prizeList);
       html.push('<li class="hc-luckywheel-item"> <span style="');
       html.push(transform + ": rotate(" + i * turnNum + 'turn)">');
-      if (opts.mode == "both") {
-        // Staging
-        html.push('<img style="touch-action: none;" src="https://staging-s3.go2joy.vn/1000w/' + prizeList[i].img + '" />');
-        // Production
-        // html.push('<img style="touch-action: none;" src="https://s3.go2joy.vn/1000w/' + prizeList[i].img + '" />');
-      } else if (prizeList[i].img) {
-        // Staging
-        html.push('<img style="touch-action: none;" src="https://staging-s3.go2joy.vn/1000w/' + prizeList[i].img + '" />');
-        // Production
-        // html.push('<img style="touch-action: none;" src="https://s3.go2joy.vn/1000w/' + prizeList[i].img + '" />');
-      } else {
-        html.push('<span id="curve">' + prizeList[i].text + "</span>");
-      }
+      
+      html.push('<span id="curve">' + prizeList[i].title + "</span>");
       html.push("</span> </li>");
       if (i + 1 === num) {
         prizeItems.className = "hc-luckywheel-list";
