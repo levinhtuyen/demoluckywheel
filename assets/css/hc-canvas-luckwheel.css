@@ -52,9 +52,9 @@
 .hc-luckywheel-item span {
   /* position: relative;
   display: block;
-  padding-top: 20px; */
   /* width: 50px; */
-      position: relative;
+    padding-top: 14px;
+    position: relative;
     display: block;
     /* padding-top: 20px; */
     width: 100px;
@@ -67,7 +67,7 @@
   text-align: center; */
   -webkit-transform-origin: 50% 250px; /*Change this when change size*/
   -ms-transform-origin: 50% 250px; /*Change this when change size*/
-  transform-origin: 50% 200px;
+  transform-origin: 50% 300px;
 } /*Change this when change size*/
 
 .hc-luckywheel-item img {
