@@ -39,13 +39,14 @@
         left: 50%; */
       /* margin-top: -100px;
       margin-left: -220px; */
-      width: 400px;
+      width: 600px;
       /*Change this when change size*/
-      height: 400px;
+      height: 600px;
       /*Change this when change size*/
       border-radius: 50%;
       border: none;
       box-shadow: none;
+      top: 36%;
     }
 
     .wrapper {
@@ -82,6 +83,10 @@
       z-index: 20;
       cursor: default;
       padding-bottom: 51px;
+    }
+    .hc-luckywheel-btn {
+      left: calc(100% - 360px);
+      top: calc(100% - 360px);
     }
     .hc-luckywheel-btn:active {
       transform: scale(0.95);
@@ -385,10 +390,11 @@
     @media only screen and (max-width: 1441px) {
       .hc-luckywheel {
         position: fixed;
-        width: 450px;
-        height: 450px;
+        width: 550px;
+        height: 550px;
         border-radius: 50%;
         border: none;
+        top: 25%;
         box-shadow: none;
       }
       .hc-luckywheel-container {
@@ -400,13 +406,11 @@
         text-transform: uppercase;
         -webkit-transform-origin: 50% 224px;
         -ms-transform-origin: 50% 224px;
-        transform-origin: 50% 224px;
+        transform-origin: 50% 272px
       }
       .hc-luckywheel-btn {
-        left: 171px;
-        top: 173px;
-        width: 105px;
-        height: 100px;
+        left: calc(100% - 335px);
+        top: calc(100% - 320px);
       }
     }
     @media only screen and (max-width: 1025px) {
@@ -436,7 +440,7 @@
         /* width: 50px; */
         position: relative;
         display: block;
-        padding-top: 0px;
+        padding-top: 10px;
         width: 135px;
         margin: 0 auto;
         text-align: center;
@@ -448,8 +452,8 @@
       }
 
       .hc-luckywheel-btn {
-        left: 165px;
-        top: 165px;
+        left: calc(100% - 274px);
+        top: calc(100% - 273px);
         width: 110px;
         height: 110px;
         line-height: 36px;
@@ -473,7 +477,7 @@
         position: absolute;
         width: 400px;
         height: 400px;
-        /* background-image: url("assets/images/24_04/vong_xoay.png"); */
+        /* background-image: url("assets/images/24_04/vong_xoay01.png"); */
         background-repeat: no-repeat;
         background-size: contain;
         z-index: 0;
@@ -495,8 +499,6 @@
         height: 110px;
       }
       .hc-luckywheel-btn {
-        left: 165px;
-        top: 165px;
         width: 110px;
         height: 110px;
         line-height: 36px;
@@ -545,7 +547,7 @@
         position: absolute;
         width: 340px;
         height: 340px;
-        /* background-image: url("assets/images/24_04/vong_xoay.png"); */
+        /* background-image: url("assets/images/24_04/vong_xoay01.png"); */
         background-repeat: no-repeat;
         background-size: contain;
         z-index: 0;
@@ -616,7 +618,7 @@
         position: absolute;
         width: 355px;
         height: 355px;
-        /* background-image: url("assets/images/24_04/vong_xoay.png"); */
+        /* background-image: url("assets/images/24_04/vong_xoay01.png"); */
         background-repeat: no-repeat;
         background-size: contain;
         z-index: 0;
@@ -681,7 +683,7 @@
         position: absolute;
         width: 355px;
         height: 355px;
-        /* background-image: url("assets/images/24_04/vong_xoay.png"); */
+        /* background-image: url("assets/images/24_04/vong_xoay01.png"); */
         background-repeat: no-repeat;
         background-size: contain;
         z-index: 0;
@@ -729,7 +731,7 @@
         position: absolute;
         width: 300px;
         height: 300px;
-        /* background-image: url("assets/images/24_04/vong_xoay.png"); */
+        /* background-image: url("assets/images/24_04/vong_xoay01.png"); */
         background-repeat: no-repeat;
         background-size: contain;
         z-index: 0;
@@ -812,11 +814,10 @@
   }
 
   </style>
-<body >
-  
+<body id="modalSuccess">
   <div class="bg" id="myModal" style="height: 100% !important;background-color: rgb(84 84 84 / 70%)">
     <div id="error"></div>
-    <div class="modal" id="myModal-game" style="z-index:100000; display:none">
+    <div class="modal" id="myModal-game" style="z-index:100000; display:block">
       <div class="g2j-basic-modal g2j-direct-app-notice-modal modal-about">
         <div class="g2j-basic-modal__bg modal-bg"> </div>
         <div class="g2j-basic-modal__section modal-section">
@@ -875,68 +876,14 @@
   <div class="wrapper typo" id="wrapper">
     <section id="luckywheel" class="hc-luckywheel">
       <div class="hc-luckywheel-container">
-        <canvas class="hc-luckywheel-canvas" width="500px" height="500px" style="background-image: url(assets/images/24_04/vong_xoay.png);    background-size: contain;background-repeat: unset;">Vòng Xoay May Mắn</canvas>
+        <canvas class="hc-luckywheel-canvas" width="500px" height="500px" style="background-image: url(assets/images/24_04/vong_xoay01.png);    background-size: contain;background-repeat: unset;">Vòng Xoay May Mắn</canvas>
       </div>
       <div class="hc-luckywheel-btn" href="javascript:;">
-        <img src="assets/images/24_04/g2j.png" />
+        <img src="assets/images/24_04/spin.png" />
       </div>
     </section>
   </div>
-  <script>
-    async function getMessage(message,i) {
-      const devGet =  document.getElementById("error").innerHTML += 
-      `<div 
-      class="max-w-xs bg-red-500 text-sm 
-      text-white rounded-md shadow-lg 
-      dark:bg-gray-700 mb-3 ml-3" role="alert">
-        <div class="flex p-4">
-          ${message}
-          <div class="ml-auto">
-            <button type="button" class="inline-flex flex-shrink-0 justify-center items-center h-4 w-4 rounded-md text-white/[.5] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-600 focus:ring-gray-500 transition-all text-sm dark:focus:ring-offset-gray-700 dark:focus:ring-gray-500">
-              
-            </button>
-          </div>
-        </div>
-      </div>`
-      var x = document.getElementById("error");
-      x.className = "show";
-      
-      
-    }
-    async function onClickRegister() {
-        const firstname = document.getElementById("firstname").value;
-        const lastname = document.getElementById("lastname").value;
-        const mobile = document.getElementById("mobile").value;
-        const spa = document.getElementById("spa").value;
-        var userOption = document.getElementById('province').value;
-        const address = document.getElementById("address").value;
 
-        const params = {
-          lastName: lastname,
-          firstName: firstname,
-          phone: mobile,
-          spaName: spa,
-          provinceId: userOption,
-          address: address
-        }
-        try {
-          const result = await axios.post(
-            "http://178.128.106.85/api/v1/user/register", params).then(function (response) {
-            })
-          } catch(error) {  
-            for(var i = 0; i < error.response.data.error.length; i++) {
-              let mess = error.response.data.error[i].message
-              setTimeout(function(){ 
-                getMessage(mess,i)
-              }, i*1000);
-            }
-            var x = document.getElementById("error");
-            setTimeout(function(){ x.className = x.className.replace("show", ""); }, error.response.data.error.length * 1000);
-            x.innerHTML = ''
-          }
-          
-    };
-  </script>
   <script>
     getProvinceList()
     async function getProvinceList() {
@@ -957,14 +904,132 @@
 </script>
 
   <script>
-    const header = parseQueryString()
-    const headerFormDataGet = {
-      'access-token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJ1c2VySWRcIjoxLFwicGhvbmVcIjpcIjA5MTU1MTIzMzdcIixcInNwYU5hbWVcIjpcIlNwYSBBQkNYWVpcIixcImZpcnN0TmFtZVwiOlwiQ2hhdSBIYWlcIixcImxhc3ROYW1lXCI6XCJIdW5nXCJ9IiwiZXhwIjoxNjg0NTA2MjI0LCJpc3MiOiJyb3N3ZWxsLWp3dCIsImlhdCI6MTY4NDQxOTgyNH0.oS9fvbC1iWiqeuG7YPBXg3mfOjM_WgadSXhAL_CaUiI',
-      // 'Device-Encode': header.DeviceEncode ? header.DeviceEncode : '',
-      'qr-token': '1491ecf5400faaf204bc9e1e9a052bf44a16cf47a6136a56534600ae13cd7baf'
+    function luckyWheelInit (prizesData) {
+      var prizes = prizesData
+      if(!window.hcLuckywheel) 
+      return;
+      window.hcLuckywheel.init({
+        id: "luckywheel",
+        config: function(callback) {
+          callback &&
+            callback(prizes);
+        },
+        mode : "both",
+        getPrize: async function(callback) {
+          var rand = await randomIndex(prizes);
+          console.log('rand :>> ', rand);
+          var chances = rand;
+          callback && callback([rand, chances]);
+        },
+        gotBack: function(data) {
+          if (data) {
+            console.log('data :>> ', data);
+            let modal = document.getElementById("modalSuccess")
+            modal.innerHTML += `<div class="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover"   id="modal-id">
+              <div class="absolute bg-black opacity-80 inset-0 z-0"></div>
+              <div class="w-full  max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
+                <!--content-->
+                <div class="">
+                  <!--body-->
+                  <div class="text-center p-5 flex-auto justify-center">
+                                  <h2 class="text-xl font-bold py-4 ">Chúc mừng bạn đã trúng giải</h3>
+                                    <h2 class="g2j-direct-app-notice-modal__content--title">${data.title === null || data.title
+                                ==='null' ? '' : data.title}</h2> 
+                  </div>
+                  <!--footer-->
+                  <div class="p-3  mt-2 text-center space-x-4 md:block">
+                      <a href="/" class="mb-2 md:mb-0 bg-[#ff6400] border border-[#ff6400] px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600">Quay lại</a>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+                setTimeout(modal.style.display ="block", 200);
+          }
+        }
+      });
     }
-    axios.defaults.headers = headerFormDataGet
+    async function getMessage(message,i) {
+      const devGet =  document.getElementById("error").innerHTML += 
+      `<div 
+      class="max-w-xs bg-red-500 text-sm 
+      text-white rounded-md shadow-lg 
+      dark:bg-gray-700 mb-3 ml-3" role="alert">
+        <div class="flex p-4">
+          ${message}
+          <div class="ml-auto">
+            <button type="button" class="inline-flex flex-shrink-0 justify-center items-center h-4 w-4 rounded-md text-white/[.5] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-600 focus:ring-gray-500 transition-all text-sm dark:focus:ring-offset-gray-700 dark:focus:ring-gray-500">
+              
+            </button>
+          </div>
+        </div>
+      </div>`
+      var x = document.getElementById("error");
+      x.className = "show";
+      
+      
+    }
+    let accessToken = ''
+    async function onClickRegister() {
+        const firstname = document.getElementById("firstname").value;
+        const lastname = document.getElementById("lastname").value;
+        const mobile = document.getElementById("mobile").value;
+        const spa = document.getElementById("spa").value;
+        var userOption = document.getElementById('province').value;
+        const address = document.getElementById("address").value;
 
+        const params = {
+          lastName: lastname,
+          firstName: firstname,
+          phone: mobile,
+          spaName: spa,
+          provinceId: userOption,
+          address: address
+        }
+        try {
+          const result = await axios.post(
+            "http://178.128.106.85/api/v1/user/register", params).then(function (response) {
+              accessToken = response.data.data.accessToken
+              if(accessToken.length > 0) {
+                const header = parseQueryString()
+                const headerFormDataGet = {
+                  'qr-token': '1491ecf5400faaf204bc9e1e9a052bf44a16cf47a6136a56534600ae13cd7baf',
+                  'access-token': accessToken
+                }
+                axios.defaults.headers = headerFormDataGet
+                let modal = document.getElementById("myModal")
+                modal.style.display = "none"
+                getDataFromApi()
+              }
+            })
+          } catch(error) {  
+            for(var i = 0; i < error.response.data.error.length; i++) {
+              let mess = error.response.data.error[i].message
+              setTimeout(function(){ 
+                getMessage(mess,i)
+              }, i*1000);
+            }
+            var x = document.getElementById("error");
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, error.response.data.error.length * 1000);
+            x.innerHTML = ''
+          } 
+    };
+    
+    async function getDataFromApi() {
+      try {
+        var result = await axios.get("http://178.128.106.85/api/v1/lucky-wheel/get-reward-wheel-list", {
+            name: "data"
+          }).then(function (response) {
+            return response.data.data
+          })
+          let modal = document.getElementById("myModal-game")
+          setTimeout(modal.style.display ="block", 700);
+          const hcLuckywheel = document.querySelector('.hc-luckywheel')
+          setTimeout(hcLuckywheel.style.display = "block", 1000);
+          luckyWheelInit(result)
+      } catch(error) { 
+        return
+      }
+    };
     function parseQueryString() {
       const hcLuckywheel = document.querySelector('.hc-luckywheel')
       hcLuckywheel.style.display = "none"
@@ -994,109 +1059,19 @@
       }
       return params;
     }
-    const wrapper = document.querySelector('.wrapper')
-    async function getDataFromApi() {
-      var result = await axios.get("http://178.128.106.85/api/v1/lucky-wheel/get-reward-wheel-list", {
-          name: "data"
-        }).then(function (response) {
-          return response.data.data
-        })
-        let modal = document.getElementById("myModal-game")
-        setTimeout(modal.style.display ="block", 700);
-        const hcLuckywheel = document.querySelector('.hc-luckywheel')
-        setTimeout(hcLuckywheel.style.display = "block", 1000);
-      return result.luckyWheel
-    };
+
+    
     async function randomIndex(prizes) {
       prizeIndex = await axios.get(
         // Staging  
-        "http://178.128.106.85/api/v1/lucky-wheel/get-reward-wheel-list", {
+        "http://178.128.106.85/api/v1/lucky-wheel/spin", {
           name: "data"
         }).then(function (response) {
           return response.data.data
       })
-      var index = prizes.findIndex(item => item.sn === prizeIndex);
+      var index = prizes.findIndex(item => item.id === prizeIndex.rewardWheelId);
       return index
     };
-    document.addEventListener(
-      "DOMContentLoaded",
-      async function () {
-          var prizes = await getDataFromApi();
-          hcLuckywheel.init({
-            id: "luckywheel",
-            config: function (callback) {
-              callback &&
-                callback(prizes);
-            },
-            mode: "both",
-            getPrize: async function (callback) {
-              var rand = await randomIndex(prizes);
-              var chances = rand;
-              callback && callback([rand, chances]);
-            },
-            gotBack: function (data) {
-              const hcLuckywheel = document.querySelector('.hc-luckywheel')
-              hcLuckywheel.style.display = "none"
-              if (data == null) {
-                document.getElementById("myModal").innerHTML += `<div class="modal" id="myModal-down-app">
-                <div class="g2j-basic-modal g2j-direct-app-notice-modal">
-                    <div class="g2j-basic-modal__bg modal-bg"> </div>
-                    <div class="g2j-basic-modal__section modal-section">
-                    <div class="g2j-basic-modal__section__head section-head">
-                        <div class="g2j-basic-modal__section__head__title head-title"> </div>
-                          <div class="g2j-basic-modal__section__head__close-btn close" >
-                            <span class="close " data-dismiss="modal">
-                            </span>
-                          </div>
-                        </div>
-                    <div class="g2j-basic-modal__section__body section-body scroll-bar-custom">
-                        <h2 class="g2j-direct-app-notice-modal__content--title">Chương trình đã kết thúc</h2>
-                        <div class="g2j-direct-app-notice-modal__container-group">
-                        <div class="g2j-direct-app-notice-modal__btn-group">
-                            <div class="detail-btn"><a href="/back">Trở lại</a></div>      
-                          </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>`;
-              } else {
-                document.getElementById("myModal").innerHTML += `<div class="modal" id="myModal-down-app">
-                <div class="g2j-basic-modal g2j-direct-app-notice-modal">
-                    <div class="g2j-basic-modal__bg modal-bg"> </div>
-                    <div class="g2j-basic-modal__section modal-section">
-                      <div class="g2j-basic-modal__section__head section-head">
-                          <div class="g2j-basic-modal__section__head__title head-title"> </div>
-                          </div>
-                          <div class="g2j-basic-modal__section__body section-body scroll-bar-custom">
-                              <h2 class="g2j-direct-app-notice-modal__content--title">${data.text === null || data.text
-                                ==='null' ? '' : data.text}</h2>
-                              <div class="g2j-direct-app-notice-modal__content--second"> 
-                                
-                                <img src="https://staging-s3.go2joy.vn/1000w/${data.img}" />
-                                <!-- <img src="https://s3.go2joy.vn/1000w/${data.img}" /> -->
-                              </div>
-                              <div class="g2j-direct-app-notice-modal__btn-group">
-                                <div class="detail-btn"><a href="/back">Trở lại</a></div>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                      
-                  </div>
-                </div>`;
-              }
-              // wrapper.style.display ='none'
-            }
-          });
-        },
-        false
-    );
-
-    function closeModalAbout() {
-      let modal = document.getElementById("myModal-game")
-      modal.style.display = "none"
-    }
     
   </script>
 </body>
