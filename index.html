@@ -20,7 +20,7 @@
       font-family: Open Sans !important;
       font-style: normal;
     }
-    body {
+    .body-image {
       position: relative;
       touch-action: none;
       background-color: #ff6400;
@@ -30,6 +30,8 @@
       background-position: center center;
       background-attachment: fixed;
       overflow: hidden;
+      width: 100%;
+      height: 100%;
     }
 
 
@@ -522,7 +524,7 @@
         height: 435px;
 
       }
-      body {
+      .body-image {
         position: relative;
         touch-action: none;
         background-color: #ff6400;
@@ -947,86 +949,88 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body id="modalSuccess">
-  <div class="bg" id="myModal" style="height: 100% !important;background-color: rgb(84 84 84 / 70%)">
-    <div id="error"></div>
-    <div class="modal" id="myModal-game" style="z-index:100000; display:block">
-      <div class="g2j-basic-modal g2j-direct-app-notice-modal modal-about">
-        <div class="g2j-basic-modal__bg modal-bg"> </div>
-        <div class="g2j-basic-modal__section modal-section">
-          <div class="g2j-basic-modal__section__head section-head" style="top: -21px;right: -21px;">
-            <div class="g2j-basic-modal__section__head__title head-title"> </div>
-          </div>
-          <div class="g2j-basic-modal__section__body-about section-body scroll-bar-custom"
-            style="border-radius: 20px;padding:unset;overflow: hidden;">
-            
-            <div class="style-modal">
-              <!-- Form -->
-              <div class="mt-6">
-                <!-- firstname and lastname -->
-                <div class="flex justify-between gap-3">
-                  <span class="w-1/2">
-                    <label for="firstname" class="block text-xs font-semibold text-gray-600 uppercase">Họ và tên đệm:</label>
-                    <input id="firstname" type="text" name="firstname" placeholder="Họ" autocomplete="given-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
-                  </span>
-                  <span class="w-1/2">
-                    <label for="lastname" class="block text-xs font-semibold text-gray-600 uppercase">&nbsp;</label>
-                  <input id="lastname" type="text" name="lastname" placeholder="Tên" autocomplete="family-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
-                  </span>
-                </div>
-                <!-- mobile -->
-                <label for="mobile" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Số điện thoại:</label>
-                <input id="mobile" type="text" name="mobile" placeholder="Số điện thoại" autocomplete="family-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
-                <!-- spa -->
-                <label for="spa" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Tên Spa:</label>
-                <input id="spa" type="text" name="spa" placeholder="Tên Spa" autocomplete="family-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
-                <!-- province -->
-                <label for="province" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Tỉnh/ thành</label>
-                <div class="flex-shrink w-full inline-block relative">
-                  <select  name="province" id="province" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner">
-                  </select>
-                  
-                  <div class="pointer-events-none absolute top-0 mt-3 pt-2 right-0 flex items-center px-2 text-gray-600">
-                      <svg class="fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
-                </div>
-                <!-- address -->
-                <label for="address" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Địa chỉ:</label>
-                <input id="address" type="address" name="address" placeholder="Nhập địa chỉ" autocomplete="address" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
-                <div id="message_success-mobile"></div>
-                <input type="hidden" name="c" value="3" /> 
-                <button onclick="onClickRegister()" class="w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none">
-                  ĐĂNG KÝ
-                </button>
-              </div>
+<body >
+  <div class="body-image" id="modalSuccess">
+    <div class="bg" id="myModal" style="height: 100% !important;background-color: rgb(84 84 84 / 70%)">
+      <div id="error"></div>
+      <div class="modal" id="myModal-game" style="z-index:100000; display:block">
+        <div class="g2j-basic-modal g2j-direct-app-notice-modal modal-about">
+          <div class="g2j-basic-modal__bg modal-bg"> </div>
+          <div class="g2j-basic-modal__section modal-section">
+            <div class="g2j-basic-modal__section__head section-head" style="top: -21px;right: -21px;">
+              <div class="g2j-basic-modal__section__head__title head-title"> </div>
+            </div>
+            <div class="g2j-basic-modal__section__body-about section-body scroll-bar-custom"
+              style="border-radius: 20px;padding:unset;overflow: hidden;">
               
+              <div class="style-modal">
+                <!-- Form -->
+                <div class="mt-6">
+                  <!-- firstname and lastname -->
+                  <div class="flex justify-between gap-3">
+                    <span class="w-1/2">
+                      <label for="firstname" class="block text-xs font-semibold text-gray-600 uppercase">Họ và tên đệm:</label>
+                      <input id="firstname" type="text" name="firstname" placeholder="Họ" autocomplete="given-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
+                    </span>
+                    <span class="w-1/2">
+                      <label for="lastname" class="block text-xs font-semibold text-gray-600 uppercase">&nbsp;</label>
+                    <input id="lastname" type="text" name="lastname" placeholder="Tên" autocomplete="family-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
+                    </span>
+                  </div>
+                  <!-- mobile -->
+                  <label for="mobile" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Số điện thoại:</label>
+                  <input id="mobile" type="text" name="mobile" placeholder="Số điện thoại" autocomplete="family-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
+                  <!-- spa -->
+                  <label for="spa" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Tên Spa:</label>
+                  <input id="spa" type="text" name="spa" placeholder="Tên Spa" autocomplete="family-name" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
+                  <!-- province -->
+                  <label for="province" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Tỉnh/ thành</label>
+                  <div class="flex-shrink w-full inline-block relative">
+                    <select  name="province" id="province" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner">
+                    </select>
+                    
+                    <div class="pointer-events-none absolute top-0 mt-3 pt-2 right-0 flex items-center px-2 text-gray-600">
+                        <svg class="fill-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
+                  </div>
+                  <!-- address -->
+                  <label for="address" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Địa chỉ:</label>
+                  <input id="address" type="address" name="address" placeholder="Nhập địa chỉ" autocomplete="address" class="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" />
+                  <div id="message_success-mobile"></div>
+                  <input type="hidden" name="c" value="3" /> 
+                  <button onclick="onClickRegister()" class="w-full py-3 mt-6 font-medium tracking-widest text-white uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none">
+                    ĐĂNG KÝ
+                  </button>
+                </div>
+                
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="wrapper typo" id="wrapper">
+      <section id="luckywheel" class="hc-luckywheel">
+        <div class="style-kim">
+          <img src="assets/images/24_04/kim.png" alt="">
+        </div>
+        <div class="hc-luckywheel-container">
+          <canvas class="hc-luckywheel-canvas" width="500px" height="500px" style="background-image: url(assets/images/24_04/vong_xoay01.png);    background-size: contain;background-repeat: unset;transform: rotate(22deg);">Vòng Xoay May Mắn</canvas>
+        </div>
+        <div class="hc-luckywheel-btn" href="javascript:;">
+          <img src="assets/images/24_04/spin.png" />
+        </div>
+      </section>
+    </div>
+  
   </div>
-  <div class="wrapper typo" id="wrapper">
-    <section id="luckywheel" class="hc-luckywheel">
-      <div class="style-kim">
-        <img src="assets/images/24_04/kim.png" alt="">
-      </div>
-      <div class="hc-luckywheel-container">
-        <canvas class="hc-luckywheel-canvas" width="500px" height="500px" style="background-image: url(assets/images/24_04/vong_xoay01.png);    background-size: contain;background-repeat: unset;transform: rotate(22deg);">Vòng Xoay May Mắn</canvas>
-      </div>
-      <div class="hc-luckywheel-btn" href="javascript:;">
-        <img src="assets/images/24_04/spin.png" />
-      </div>
-    </section>
-  </div>
-
   <script>
     getProvinceList()
     async function getProvinceList() {
       html = "";
       //  
       let dataProvince = []
-      var result = await axios.get("http://178.128.106.85/api/v1/appendix/get-province-list", {
+      var result = await axios.get("https://tgtm.vn/api/v1/appendix/get-province-list", {
             name: "data"
           }).then(function (response) {
             dataProvince = response.data.data
@@ -1126,7 +1130,7 @@
         }
         try {
           const result = await axios.post(
-            "http://178.128.106.85/api/v1/user/register", params).then(function (response) {
+            "https://tgtm.vn/api/v1/user/register", params).then(function (response) {
               accessToken = response.data.data.accessToken
               if(accessToken.length > 0) {
                 const header = parseQueryString()
@@ -1156,7 +1160,7 @@
     
     async function getDataFromApi() {
       try {
-        var result = await axios.get("http://178.128.106.85/api/v1/lucky-wheel/get-reward-wheel-list", {
+        var result = await axios.get("https://tgtm.vn/api/v1/lucky-wheel/get-reward-wheel-list", {
             name: "data"
           }).then(function (response) {
             return response.data.data
@@ -1204,7 +1208,7 @@
     async function randomIndex(prizes) {
       prizeIndex = await axios.get(
         // Staging  
-        "http://178.128.106.85/api/v1/lucky-wheel/spin", {
+        "https://tgtm.vn/api/v1/lucky-wheel/spin", {
           name: "data"
         }).then(function (response) {
           return response.data.data
