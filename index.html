@@ -10,14 +10,14 @@
   <meta property="og:url" content="" />
   <title>QUAY THỎA THÍCH - QUÀ LIỀN TAY</title>
   <link href="assets/images/24_04/bg_mobile.png" rel="icon">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css' />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:ital,wght@0,600;0,700;1,600&display=swap' rel='stylesheet' type='text/css' />
   <link rel="stylesheet" href="assets/css/typo/typo.css" />
   <link rel="stylesheet" href="assets/css/hc-canvas-luckwheel.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
   <style>
     * {
       font-size: 100%;
-      font-family: Open Sans !important;
+      font-family: 'Open Sans', sans-serif;
       font-style: normal;
     }
     .body-image {
@@ -384,6 +384,7 @@
     }
     .style-modal-image {
       min-width: 400px;
+      height: auto;
     }
     .style-kim {
         position: absolute;
@@ -409,12 +410,15 @@
     @media only screen and (max-width: 1441px) {
       .style-kim {
         position: absolute;
-        top: -20;
+        top: -20px;
         z-index: 10;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+      .style-modal-image {
+        min-width: 400px
       }
       .style-kim img {
         width: 75px;
@@ -442,6 +446,11 @@
       .hc-luckywheel-btn {
         left: calc(100% - 335px);
         top: calc(100% - 320px);
+      }
+      .g2j-direct-app-notice-modal__content--second img {
+
+          max-width: 115px;
+          height: 75px;
       }
     }
     @media only screen and (max-width: 1025px) {
@@ -593,6 +602,7 @@
 
       .g2j-direct-app-notice-modal__content--second img {
         max-width: 140px;
+        height: 75px;
       }
 
       .g2j-direct-app-notice-modal__content--second {
@@ -644,8 +654,8 @@
       }
 
       .hc-luckywheel-btn {
-        left: 165px;
-        top: 165px;
+        left: calc(100% - 222px);
+        top: calc(100% - 222px);
         width: 110px;
         height: 110px;
         line-height: 36px;
@@ -783,6 +793,14 @@
         height: 355px;
         /* left: 7%; */
         top: 36%;
+      }
+      .g2j-direct-app-notice-modal__content--second img {
+          max-width: 85px;
+          height: 65px;
+      }
+      .text-xl {
+          font-size: 0.8rem !important;
+          line-height: 1.75rem;
       }
       .style-kim {
         position: absolute;
@@ -1030,7 +1048,7 @@
       html = "";
       //  
       let dataProvince = []
-      var result = await axios.get("https://tgtm.vn/api/v1/appendix/get-province-list", {
+      var result = await axios.get("http://178.128.106.85/api/v1/appendix/get-province-list", {
             name: "data"
           }).then(function (response) {
             dataProvince = response.data.data
@@ -1130,7 +1148,7 @@
         }
         try {
           const result = await axios.post(
-            "https://tgtm.vn/api/v1/user/register", params).then(function (response) {
+            "http://178.128.106.85/api/v1/user/register", params).then(function (response) {
               accessToken = response.data.data.accessToken
               if(accessToken.length > 0) {
                 const header = parseQueryString()
@@ -1160,7 +1178,7 @@
     
     async function getDataFromApi() {
       try {
-        var result = await axios.get("https://tgtm.vn/api/v1/lucky-wheel/get-reward-wheel-list", {
+        var result = await axios.get("http://178.128.106.85/api/v1/lucky-wheel/get-reward-wheel-list", {
             name: "data"
           }).then(function (response) {
             return response.data.data
@@ -1208,7 +1226,7 @@
     async function randomIndex(prizes) {
       prizeIndex = await axios.get(
         // Staging  
-        "https://tgtm.vn/api/v1/lucky-wheel/spin", {
+        "http://178.128.106.85/api/v1/lucky-wheel/spin", {
           name: "data"
         }).then(function (response) {
           return response.data.data
