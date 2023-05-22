@@ -115,6 +115,7 @@
       ctx.arc(0, 0, 250, 0, (2 * Math.PI) / num, false); // Radius
       if (i % 2 !== 0 && i != 7) {
         ctx.fillStyle = "rgba(255, 0, 0, 0)";
+        
       } else {
         ctx.fillStyle = "rgba(255, 0, 0, 0)";
       }
@@ -124,11 +125,16 @@
       // ctx.stroke();
       ctx.restore();
       var prizeList = opts.prizes;
-      console.log('prizeList :>> ', prizeList);
       html.push('<li class="hc-luckywheel-item"> <span style="');
+      
       html.push(transform + ": rotate(" + i * turnNum + 'turn)">');
       
-      html.push('<span id="curve">' + prizeList[i].title + "</span>");
+      
+      if (i % 2 == 0 ) {
+        html.push('<span id="curve" style="color:#e9ca6b">' + prizeList[i].title + "</span>");
+      } else {
+        html.push('<span id="curve" style="color:#000000">' + prizeList[i].title + "</span>");
+      }
       html.push("</span> </li>");
       if (i + 1 === num) {
         prizeItems.className = "hc-luckywheel-list";
