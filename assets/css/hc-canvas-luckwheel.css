@@ -53,18 +53,17 @@
   /* position: relative;
   display: block;
   /* width: 50px; */
-    padding-top: 14px;
+    padding-top: 30px;
     position: relative;
     display: block;
-    /* padding-top: 20px; */
+    font-size: 20px;
     width: 100px;
     margin: 0 auto;
     text-align: center;
     transform-origin: 50% 250px;
     text-transform: uppercase;
     touch-action: none;
-  /* margin: 0 auto;
-  text-align: center; */
+
   -webkit-transform-origin: 50% 250px; /*Change this when change size*/
   -ms-transform-origin: 50% 250px; /*Change this when change size*/
   transform-origin: 50% 300px;
@@ -80,8 +79,8 @@
 
 .hc-luckywheel-btn {
   position: absolute;
-  left: 140px;
-  top: 129px;
+  left: calc(100% - 354px);
+  top: calc(100% - 354px);
   z-index: 3;
   width: 120px;
   height: 120px;
