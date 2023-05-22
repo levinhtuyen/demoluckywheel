@@ -259,14 +259,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px
+      padding: 0px;
     }
 
     .g2j-direct-app-notice-modal__content--second img {
       display: flex;
       align-items: center;
       justify-content: center;
-      max-width: 250px;
+      max-width: 115px;
       height: auto;
     }
 
@@ -377,7 +377,24 @@
       width: 15px;
       filter: invert(54%) sepia(78%) saturate(7376%) hue-rotate(9deg) brightness(99%) contrast(103%);
     }
-
+    .style-modal {
+      padding: 32px 16px; 
+    }
+    .style-modal-image {
+      min-width: 400px;
+    }
+    .style-kim {
+        position: absolute;
+        top: -50px;
+        z-index: 10;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .style-kim img {
+        width: 100px;
+      }
     .g2j-direct-app-notice-modal.modal-about .modal-section {
       top: 50%;
       position: relative;
@@ -388,6 +405,18 @@
       min-height: auto;
     }
     @media only screen and (max-width: 1441px) {
+      .style-kim {
+        position: absolute;
+        top: -20;
+        z-index: 10;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .style-kim img {
+        width: 75px;
+      }
       .hc-luckywheel {
         position: fixed;
         width: 550px;
@@ -401,7 +430,7 @@
         top: 12px;
       }
       .hc-luckywheel-item span {
-        padding-top: 12px;
+        padding-top: 20px;
         transform-origin: 50% 224px;
         text-transform: uppercase;
         -webkit-transform-origin: 50% 224px;
@@ -414,6 +443,18 @@
       }
     }
     @media only screen and (max-width: 1025px) {
+      .style-kim {
+        position: absolute;
+        top: -20;
+        z-index: 10;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .style-kim img {
+        width: 75px;
+      }
       .hc-luckywheel {
         position: fixed;
         top: 38%;
@@ -440,8 +481,9 @@
         /* width: 50px; */
         position: relative;
         display: block;
-        padding-top: 10px;
-        width: 135px;
+        padding-top: 20px;
+        width: 115px;
+        font-size: 16px;
         margin: 0 auto;
         text-align: center;
         transform-origin: 50% 250px;
@@ -460,6 +502,18 @@
       }
     }
     @media only screen and (max-width: 769px) {
+      .style-kim {
+        position: absolute;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .style-kim img {
+        width: 50px;
+      }
       .hc-luckywheel {
         top: 37%;
         /*left: 10.5%; */
@@ -468,9 +522,20 @@
         height: 435px;
 
       }
+      body {
+        position: relative;
+        touch-action: none;
+        background-color: #ff6400;
+        background-image: url('assets/images/24_04/bg_mobile1.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        overflow: hidden;
+      }
       .hc-luckywheel-item span {
         transform-origin: 50% 215px;
-        width: 110px;
+        width: 100px;
       }
       .hc-luckywheel::after{
         content: '';
@@ -488,8 +553,8 @@
       
 
       .hc-luckywheel-item span {
-        font-size: 10px;
-        padding-top: 0px;
+        font-size: 14px;
+        padding-top: 25px;
       }
       .hc-luckywheel-item img {
         position: relative;
@@ -505,7 +570,7 @@
       }
 
       .bg {
-        background-image: url('assets/images/24_04/bg_mobile.png');
+        background-image: url('assets/images/24_04/bg_mobile1.png');
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -534,6 +599,18 @@
     }
 
     @media only screen and (max-width: 600px) {
+      .style-kim {
+        position: absolute;
+        top: -10px;
+        z-index: 10;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .style-kim img {
+        width: 60px;
+      }
       .hc-luckywheel {
         top: 38%;
         /*left: 18%; */
@@ -586,9 +663,9 @@
       }
 
       .hc-luckywheel-item span {
-        font-size: 12px;
+        font-size: 16px;
         width: 110px;
-        padding-top: 0px;
+        padding-top: 14px;
       }
 
       .hc-luckywheel-item img {
@@ -603,6 +680,37 @@
     }
 
     @media only screen and (max-width: 540px) {
+      .style-kim {
+        position: absolute;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .style-kim img {
+        width: 50px;
+      }
+      .p-3 {
+        padding: 0.25rem !important;
+      }
+      .style-modal {
+        padding: 16px 8px; 
+      }
+      .pt-2 {
+        padding-top: 0.1rem !important;
+      }
+      .mt-6 {
+          margin-top: 0.5rem !important;
+      }
+      .py-3 {
+          padding-top: 0.25rem !important;
+          padding-bottom: 0.25rem !important;
+      }
+      .style-modal-image {
+        min-width: 350px;
+      }
       .hc-luckywheel {
         width: 385px;
         height: 385px;
@@ -627,8 +735,8 @@
         transform: translate(-50%,-50%);
       }
       .hc-luckywheel-item span {
-        font-size: 10px;
-        width: 117px;
+        font-size: 14px;
+        width: 101px;
       }
       .hc-luckywheel-btn {
         left: 144px;
@@ -674,9 +782,29 @@
         /* left: 7%; */
         top: 36%;
       }
+      .style-kim {
+        position: absolute;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .style-kim img {
+        width: 50px;
+      }
+      .style-modal-image {
+        min-width: 325px;
+      }
+      .g2j-direct-app-notice-modal__content--second img {
+          max-width: 85px;
+      }
       .hc-luckywheel-item span {
         transform-origin: 50% 178px;
-        padding-top: 10px;
+        padding-top: 20px;
+        font-size: 13px;
+        width: 85px;
       }
       .hc-luckywheel::after{
         content: '';
@@ -694,11 +822,11 @@
       .hc-luckywheel-btn {
         left: 128px;
         top: 122px;
-        width: 100px;
+        width: 90px;
         height: 100px;
         line-height: 36px;
         text-align: center;
-        font-size: 12px;
+        font-size: 14px;
       }
       .hc-luckywheel-item img {
         position: relative;
@@ -726,6 +854,12 @@
         top: 42%;
         /* left: 6.5%; */
       }
+      .style-modal-image {
+        min-width: 260px;
+      }
+      .g2j-direct-app-notice-modal__content--second img {
+          max-width: 65px;
+      }
       .hc-luckywheel::after{
         content: '';
         position: absolute;
@@ -751,8 +885,9 @@
       
       .hc-luckywheel-item span {
         transform-origin: 50% 150px;
-        width: 110px;
-        padding-top: 0px;
+        width: 78px;
+        padding-top: 15px;
+        font-size: 12px;
       }
 
       .g2j-direct-app-notice-modal__content--title {
@@ -777,43 +912,41 @@
         height: 90px;
       }
     }
+    #error {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: absolute;
+      z-index: 10000000;
+      left: 50%;
+      top: 20px;
+      font-size: 17px;
+    }
+    
+    #error.show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+    
+    @-webkit-keyframes fadein {
+      from {bottom: 0; opacity: 0;} 
+      to {bottom: 30px; opacity: 1;}
+    }
+    
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
 
   </style>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<style>
-  #error {
-  visibility: hidden;
-  min-width: 250px;
-  margin-left: -125px;
-  color: #fff;
-  text-align: center;
-  border-radius: 2px;
-  padding: 16px;
-  position: absolute;
-  z-index: 10000000;
-  left: 50%;
-  top: 20px;
-  font-size: 17px;
-  }
-  
-  #error.show {
-    visibility: visible;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  }
-  
-  @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;} 
-    to {bottom: 30px; opacity: 1;}
-  }
-  
-  @keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-  }
 
-  </style>
 <body id="modalSuccess">
   <div class="bg" id="myModal" style="height: 100% !important;background-color: rgb(84 84 84 / 70%)">
     <div id="error"></div>
@@ -827,7 +960,7 @@
           <div class="g2j-basic-modal__section__body-about section-body scroll-bar-custom"
             style="border-radius: 20px;padding:unset;overflow: hidden;">
             
-            <div style="padding: 32px 16px; ">
+            <div class="style-modal">
               <!-- Form -->
               <div class="mt-6">
                 <!-- firstname and lastname -->
@@ -875,8 +1008,11 @@
   </div>
   <div class="wrapper typo" id="wrapper">
     <section id="luckywheel" class="hc-luckywheel">
+      <div class="style-kim">
+        <img src="assets/images/24_04/kim.png" alt="">
+      </div>
       <div class="hc-luckywheel-container">
-        <canvas class="hc-luckywheel-canvas" width="500px" height="500px" style="background-image: url(assets/images/24_04/vong_xoay01.png);    background-size: contain;background-repeat: unset;">Vòng Xoay May Mắn</canvas>
+        <canvas class="hc-luckywheel-canvas" width="500px" height="500px" style="background-image: url(assets/images/24_04/vong_xoay01.png);    background-size: contain;background-repeat: unset;transform: rotate(22deg);">Vòng Xoay May Mắn</canvas>
       </div>
       <div class="hc-luckywheel-btn" href="javascript:;">
         <img src="assets/images/24_04/spin.png" />
@@ -904,6 +1040,7 @@
 </script>
 
   <script>
+    parseQueryString()
     function luckyWheelInit (prizesData) {
       var prizes = prizesData
       if(!window.hcLuckywheel) 
@@ -917,7 +1054,6 @@
         mode : "both",
         getPrize: async function(callback) {
           var rand = await randomIndex(prizes);
-          console.log('rand :>> ', rand);
           var chances = rand;
           callback && callback([rand, chances]);
         },
@@ -925,20 +1061,21 @@
           if (data) {
             console.log('data :>> ', data);
             let modal = document.getElementById("modalSuccess")
-            modal.innerHTML += `<div class="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover"   id="modal-id">
+            modal.innerHTML += `<div class="min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-no-repeat bg-center bg-cover"  id="modal-id">
               <div class="absolute bg-black opacity-80 inset-0 z-0"></div>
-              <div class="w-full  max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg  bg-white ">
+              <div class=" max-w-lg p-5 relative mx-auto my-auto" style="background-image: url(assets/images/24_04/khung.png);background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center center;
+              overflow: hidden;
+              position: relative;">
                 <!--content-->
-                <div class="">
+                <div class="style-modal-image">
                   <!--body-->
                   <div class="text-center p-5 flex-auto justify-center">
-                                  <h2 class="text-xl font-bold py-4 ">Chúc mừng bạn đã trúng giải</h3>
-                                    <h2 class="g2j-direct-app-notice-modal__content--title">${data.title === null || data.title
-                                ==='null' ? '' : data.title}</h2> 
-                  </div>
-                  <!--footer-->
-                  <div class="p-3  mt-2 text-center space-x-4 md:block">
-                      <a href="/" class="mb-2 md:mb-0 bg-[#ff6400] border border-[#ff6400] px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600">Quay lại</a>
+                    <h3 class="text-xl font-bold" style="color:#e8c438">Chúc mừng bạn đã trúng</h3>
+                    <div class="g2j-direct-app-notice-modal__content--second"> 
+                      <img src="${data.imagePath}" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -993,8 +1130,9 @@
               accessToken = response.data.data.accessToken
               if(accessToken.length > 0) {
                 const header = parseQueryString()
+                
                 const headerFormDataGet = {
-                  'qr-token': '1491ecf5400faaf204bc9e1e9a052bf44a16cf47a6136a56534600ae13cd7baf',
+                  'qr-token': header,
                   'access-token': accessToken
                 }
                 axios.defaults.headers = headerFormDataGet
@@ -1033,32 +1171,32 @@
       }
     };
     function parseQueryString() {
-      const hcLuckywheel = document.querySelector('.hc-luckywheel')
-      hcLuckywheel.style.display = "none"
       let query = window.location.search;
       if (!query) {
         return
       }
       var urlparts = query.split('?');
       var vars = urlparts[1].split("&");
-      var params = {};
-
+      var params = ''
       for (var i = 0; i < vars.length; i++) {
         var pair = vars[i].split("=");
         var key = decodeURIComponent(pair.shift());
         var value = decodeURIComponent(pair.join("="));
+        params=  value
         // If first entry with this name
-        if (typeof params[key] === "undefined") {
-          params[key] = value;
-          // If second entry with this name
-        } else if (typeof params[key] === "string") {
-          var arr = [params[key], value];
-          params[key] = arr;
-          // If third or later entry with this name
-        } else {
-          params[key].push(value);
+        // if (typeof params[key] === "undefined") {
+        //   params[key] = value;
+        //   // If second entry with this name
+        // } else if (typeof params[key] === "string") {
+        //   var arr = [params[key], value];
+        //   params[key] = arr;
+        //   // If third or later entry with this name
+        // } else {
+        //   params[key].push(value);
+        // }
         }
-      }
+        console.log('params :>> ', params
+      );
       return params;
     }
 
