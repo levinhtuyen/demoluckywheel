@@ -1048,7 +1048,7 @@
       html = "";
       //  
       let dataProvince = []
-      var result = await axios.get("http://178.128.106.85/api/v1/appendix/get-province-list", {
+      var result = await axios.get("https://tgtm.vn/api/v1/appendix/get-province-list", {
             name: "data"
           }).then(function (response) {
             dataProvince = response.data.data
@@ -1148,7 +1148,7 @@
         }
         try {
           const result = await axios.post(
-            "http://178.128.106.85/api/v1/user/register", params).then(function (response) {
+            "https://tgtm.vn/api/v1/user/register", params).then(function (response) {
               accessToken = response.data.data.accessToken
               if(accessToken.length > 0) {
                 const header = parseQueryString()
@@ -1178,7 +1178,7 @@
     
     async function getDataFromApi() {
       try {
-        var result = await axios.get("http://178.128.106.85/api/v1/lucky-wheel/get-reward-wheel-list", {
+        var result = await axios.get("https://tgtm.vn/api/v1/lucky-wheel/get-reward-wheel-list", {
             name: "data"
           }).then(function (response) {
             return response.data.data
@@ -1226,7 +1226,7 @@
     async function randomIndex(prizes) {
       prizeIndex = await axios.get(
         // Staging  
-        "http://178.128.106.85/api/v1/lucky-wheel/spin", {
+        "https://tgtm.vn/api/v1/lucky-wheel/spin", {
           name: "data"
         }).then(function (response) {
           return response.data.data
