@@ -271,7 +271,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      max-width: 175px;
+      max-width: 185px;
       height: auto;
     }
 
@@ -387,7 +387,11 @@
     }
     .style-modal-image {
       min-width: 465px;
-      height: 365px;
+      height: 400px;
+    }
+    .max-w-lg {
+      width: 900px;
+      max-width: none !important;
     }
     .style-modal-image div {
       margin: 0 auto;
@@ -399,7 +403,7 @@
       margin-right: auto;
       position: absolute;
       width: 100%;
-      height: 162px;
+      height: 178px;
     }
     .style-kim {
         position: absolute;
@@ -431,6 +435,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+      .max-w-lg {
+        width: 600px;
       }
       .style-modal-image {
         min-width: 465px;
@@ -477,6 +484,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+      .max-w-lg {
+        width: 600px;
+      }
+      .g2j-direct-app-notice-modal__content--second img {
+          max-width: 148px;
+          height: 114px;
       }
       .style-kim img {
         width: 75px;
@@ -536,6 +550,24 @@
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+      .style-modal-image div {
+          margin: 0 auto;
+          bottom: 0px;
+          top: 28%;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          position: absolute;
+          width: 100%;
+          height: 129px;
+      }
+      .max-w-lg {
+        width: 500px;
+      }
+      .style-modal-image {
+          height: 295px;
       }
       .style-kim img {
         width: 50px;
@@ -709,15 +741,33 @@
     @media only screen and (max-width: 540px) {
       .style-kim {
         position: absolute;
-        top: 0;
+        top: -10px;
         z-index: 10;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
       }
+      .text-xl {
+        font-size: 1.25rem !important;
+      }
+      .style-modal-image div {
+          margin: 0 auto;
+          bottom: 0px;
+          top: 20%;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          position: absolute;
+          width: 100%;
+          height: 127px;
+      }
       .style-kim img {
         width: 50px;
+      }
+      .style-modal-image {
+          height: 195px;
       }
       .p-3 {
         padding: 0.25rem !important;
